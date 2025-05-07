@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">МойСайт</a>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="gallery.html" class="active">Галерея</a>
+            <a href="map.html">Карта</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Наша галерея</h1>
+        <div class="gallery">
+            <a href="photos/photo1.jpg" target="_blank"><img src="photos/photo1.jpg" alt="Фото 1" class="big-1"></a>
+            <a href="photos/photo2.jpg" target="_blank"><img src="photos/photo2.jpg" alt="Фото 2" class="small-1"></a>
+            <a href="photos/photo3.jpg" target="_blank"><img src="photos/photo3.jpg" alt="Фото 3" class="big-2"></a>
+            <a href="photos/photo4.jpg" target="_blank"><img src="photos/photo4.jpg" alt="Фото 4" class="small-2"></a>
+            <a href="photos/photo5.jpg" target="_blank"><img src="photos/photo5.jpg" alt="Фото 5" class="small-3"></a>
+            <a href="photos/photo6.jpg" target="_blank"><img src="photos/photo6.jpg" alt="Фото 6" class="small-4"></a>
+            <a href="photos/kipr7.jpg" target="_blank"><img src="photos/kipr7.jpg" alt="Фото 7" class="small-5"></a>
+            <a href="photos/kipr8.jpg" target="_blank"><img src="photos/kipr8.jpg" alt="Фото 8" class="small-6"></a>
+            <a href="photos/kipr9.jpg" target="_blank"><img src="photos/kipr9.jpg" alt="Фото 9" class="small-7"></a>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 Простой сайт</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация бургер-меню на всех страницах
+    const burgerMenus = document.querySelectorAll('.burger-menu');
+    const navs = document.querySelectorAll('.nav');
+    
+    burgerMenus.forEach(burger => {
+        burger.addEventListener('click', function() {
+            // Находим соответствующее меню для этого бургера
+            const relatedNav = this.closest('header').querySelector('.nav');
+            this.classList.toggle('active');
+            relatedNav.classList.toggle('active');
+        });
+    });
+    
+    // Закрытие меню при клике на ссылку
+    const navLinks = document.querySelectorAll('.nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const nav = this.closest('.nav');
+            const burger = nav.closest('header').querySelector('.burger-menu');
+            burger.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
+});
+    </script>
+</body>
+</html>
